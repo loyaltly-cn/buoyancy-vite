@@ -1,5 +1,6 @@
 import {createRouter, createMemoryHistory, createWebHashHistory} from "vue-router";
 import index from '../components/index.vue'
+import test from '../components/test.vue'
 
 const routers = [
     {
@@ -9,11 +10,15 @@ const routers = [
     {
         path: '/index',
         component:index
+    },
+    {
+        path: '/test',
+        component: test
     }
 ]
 
 
 export const router = createRouter({
-    history:createWebHashHistory('sfm'),
+    history:createWebHashHistory('/sfm'),
     routes:routers
 })

@@ -1,5 +1,178 @@
-export const data = [
+export  const me_bar = [
     {
-        name:'进口'
+        name:'推荐材料',
+        materialList:[0,1,2,2,1,0,1,2]
+    },
+    {
+        name:'FDM',
+        materialList:[1,2,0]
+    },
+    {
+        name:'SLA',
+        materialList:[2,0,2]
+    },
+    {
+        name:'SLS',
+        materialList:[0,1,2]
+    },
+    {
+        name:'SLM',
+        materialList:[0,1,2]
+    },
+    {
+        name:'原型手板',
+        materialList:[0,1,2]
+    },
+    {
+        name:'功能零件',
+        materialList:[0,1,2]
+    },
+    {
+        name:'展示模型',
+        materialList:[0,1,2]
+    },
+    {
+        name:'动漫手办',
+        materialList:[0,1,2]
+    },
+    {
+        name:'建筑雕塑',
+        materialList:[0,1,2]
+    },
+    {
+        name:'医疗卫生',
+        materialList:[0,1,2]
+    },
+    {
+        name:'航空汽车',
+        materialList:[0,1,2]
+    },
+    {
+        name:'批量生产',
+        materialList:[0,1,2]
+    },
+]
+
+export const ep_bar= [
+    {
+        name:'全部',
+        materialList:[0,1,2,3,3,2,1,3,0,1,2,3,1,1,3,3]
+    },
+    {
+        name:'特价',
+        materialList:[0,1,2,3,2]
+    },
+    {
+        name:'树脂',
+        materialList:[2,1,2,3]
+    },
+    {
+        name:'塑料',
+        materialList:[2,1,2,3]
+    },
+    {
+        name:'软胶/蜡',
+        materialList:[2,1,3]
+    },
+    {
+        name:'金属',
+        materialList:[2,1,2,3]
+    },
+    {
+        name:'CNC',
+        materialList:[2,1,2,3]
+    },
+    {
+        name:'激光切割',
+        materialList:[2,1,2,3]
+    },
+
+]
+
+export const ep_list= [
+    {
+        name:'进口光敏树脂',
+        price:1.20,
+        url:'http://pic.mohou.com/service_upload/3_new.jpg',
+    },
+    {
+        name:'进口尼龙',
+        price:2.39,
+        url:'http://pic.mohou.com/service_upload/4_choose.jpg',
+    },
+    {
+        name:'特惠尼龙/玻纤',
+        price:1.29,
+        url:'http://pic.mohou.com/service_upload/83.jpg',
+    },
+    {
+        name:'特惠尼龙/玻纤',
+        price:1.29,
+        url:'http://pic.mohou.com/service_upload/83.jpg',
+    }
+]
+
+export const me_list = [
+    {
+        name:'进口光敏树脂',
+        price:1.20,
+        url:'http://pic.mohou.com/service_upload/3_new.jpg',
+        temperature_range:'60',
+        size_precision:0.1,
+        cycle:'1~3',
+        texture:'光滑细腻，细节表现力好',
+        device_size:'1400*700*500',
+        trait:'性价比高，成型细腻、表面质量好，适合做工业手板、工艺品等高精度模型',
+        label:[5,7,8,9,10,2]
+    },
+    {
+        name:'进口尼龙',
+        price:2.39,
+        url:'http://pic.mohou.com/service_upload/4_choose.jpg',
+        temperature_range:'70~150',
+        size_precision:0.2,
+        cycle:'2~4',
+        texture:'表面有磨砂感，大倾斜角有可能有层纹',
+        device_size:'300*300*600',
+        trait:'采用进口设备，进口尼龙粉末打印，综合性能比较全面，机械性能优良，适合做功能部件，免装配件等（空心打印需自带材料脱出孔）',
+        label:[6,5,11,10,12,3]
+    },
+    {
+        name:'特惠尼龙/玻纤',
+        price:1.29,
+        url:'http://pic.mohou.com/service_upload/83.jpg',
+        temperature_range:'-100℃ /150~180',
+        size_precision:0.2,
+        cycle:'2~4',
+        texture:'表面有磨砂感，黑色层纹明显，大倾斜角层纹清晰',
+        device_size:'700*380*500',
+        trait:'特惠尼龙和特惠尼龙玻纤，尼龙可以是白色原色或者黑色染色，尼龙玻纤由尼龙和40%玻璃纤维球组成，同尼龙相比，尼龙玻纤在强度、耐温、防火性上都有所提升。',
+        label:[6,11,10,12,3]
+    }
+]
+
+export const craft = [
+    {
+        name:'3D打印',
+        url:'http://res.mohou.com/images/new/baojia/3dp.png'
+    },
+    {
+        name:'CNC',
+        url:'http://res.mohou.com/images/new/baojia/cnc.png'
+    },
+    {
+        name:'激光切割',
+        url:'http://res.mohou.com/images/new/baojia/lasercut.png'
+    },
+]
+
+export const fill_format = [
+    {
+        name:'空心',
+        url:'radio-blank'
+    },
+    {
+        name:'实心',
+        url: 'radio-marked'
     }
 ]
