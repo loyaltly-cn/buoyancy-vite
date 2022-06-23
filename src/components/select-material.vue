@@ -109,9 +109,7 @@ import {ref} from "vue";
   }
 
   const emit = defineEmits(['selected'])
-  const selected = (data)=>{
-    emit('selected',data)
-  }
+  const selected = (data) => emit('selected',data)
 </script>
 
 <style scoped>

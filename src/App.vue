@@ -4,9 +4,9 @@
 </script>
 
 <template>
-  <var-space style="position: fixed;margin-top: 10%;margin-left: 91%">
-    <side-msg/>
-  </var-space>
+<!--  <var-space style="position: fixed;margin-top: 10%;margin-left: 91%">-->
+<!--    <side-msg/>-->
+<!--  </var-space>-->
   <router-view></router-view>
 </template>
 

@@ -91,12 +91,12 @@ export const ep_bar= [
 
 export const ep_list= [
     {
-        name:'进口光敏树脂',
+        name:'500 耐压',
         price:1.20,
         url:'http://pic.mohou.com/service_upload/3_new.jpg',
     },
     {
-        name:'进口尼龙',
+        name:'600 << 2000',
         price:2.39,
         url:'http://pic.mohou.com/service_upload/4_choose.jpg',
     },
@@ -153,17 +153,13 @@ export const me_list = [
 
 export const craft = [
     {
-        name:'3D打印',
+        name:'聚尿喷涂',
         url:'http://res.mohou.com/images/new/baojia/3dp.png'
     },
     {
-        name:'CNC',
+        name:'油漆',
         url:'http://res.mohou.com/images/new/baojia/cnc.png'
-    },
-    {
-        name:'激光切割',
-        url:'http://res.mohou.com/images/new/baojia/lasercut.png'
-    },
+    }
 ]
 
 export const fill_format = [

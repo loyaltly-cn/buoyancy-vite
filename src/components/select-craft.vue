@@ -23,9 +23,7 @@
   const list = ref(craft)
 
   const emit = defineEmits(['selected'])
-  const selected = (data) =>{
-    emit('selected',data)
-  }
+  const selected = (data) => emit('selected',data)
 
 </script>
 

@@ -53,10 +53,8 @@ import {me_bar, me_list} from "../js/material";
   }
 
   const emit = defineEmits(['selected'])
-  const selected = (data)=>{
-    console.log(data)
-    emit('selected',data)
-  }
+
+  const selected = (data) => emit('selected',data)
 
   const random = () =>{
 

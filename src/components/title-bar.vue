@@ -1,5 +1,5 @@
 <template>
-  <var-space style="margin-top: 1%" size="large">
+  <var-space style="margin-top: 5%" size="large" :wrap="false">
     <var-button :text="true" type="info" > 3D云打印</var-button>
     <var-button class="hover" :text="true">新手必读</var-button>
     <var-button class="hover" :text="true">成功案例</var-button>

@@ -1,6 +1,6 @@
-import {createRouter, createMemoryHistory, createWebHashHistory} from "vue-router";
+import {createRouter,createWebHashHistory} from "vue-router";
 import index from '../components/index.vue'
-import test from '../components/test.vue'
+import preview from '../components/model.vue'
 
 const routers = [
     {
@@ -12,8 +12,8 @@ const routers = [
         component:index
     },
     {
-        path: '/test',
-        component: test
+        path: '/preview',
+        component: preview
     }
 ]
 

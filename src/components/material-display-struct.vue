@@ -53,9 +53,9 @@ import {me_bar} from "../js/material";
   })
 
   const emit = defineEmits(['selected'])
-  const selected = ()=>{
-    emit('selected',props.data)
-  }
+  const selected = () => emit('selected',props.data)
+
+
 </script>
 
 <style scoped>

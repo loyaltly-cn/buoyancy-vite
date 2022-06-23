@@ -10,6 +10,8 @@
   "dependencies": {
     "@varlet/ui": "^1.27.10",
     "axios": "^0.27.2",
+    "default-passive-events": "^2.0.0",
+    "save": "^2.5.0",
     "vue": "^3.2.25",
     "vue-router": "4"
   },
