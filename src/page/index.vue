@@ -52,34 +52,31 @@
       <iframe :src="url" width="1000px" height="800px" scrolling="no"/>
     </template>
   </var-popup>
+
+  <div class="side">
+    <side-msg />
+  </div>
+
  </template>
 
 <script setup>
 import {reactive, ref} from "vue";
 import {me_list} from "../js/material";
 
-  const srcList = ['https://rovmaker.oss-cn-shanghai.aliyuncs.com/sfm/swipe/os%20x.webp',
-                    'https://rovmaker.oss-cn-shanghai.aliyuncs.com/sfm/swipe/kali.jpeg',
-                    'https://rovmaker.oss-cn-shanghai.aliyuncs.com/sfm/swipe/ubuntu.webp']
-
-  let src = ref(srcList[0])
-  let index = 0
-  let url = ref('')
+  const srcList = ['os%20x.webp', 'kali.jpeg', 'ubuntu.webp']
+  const swipe_url = 'https://rovmaker.oss-cn-shanghai.aliyuncs.com/sfm/swipe/'
+  let src = ref(swipe_url+srcList[0])
+  let url = ref()
   let show = ref(false)
-  let currentMaterial = me_list[0]
   let model_list = ref([])
+  let currentMaterial = me_list[0]
+  let index = 0
   let state = reactive({
     ep_data:currentMaterial,
     model_list:model_list
   })
 
-  setInterval(()=>{
-    if (index === 3){
-      index = 0
-    }
-    src.value = srcList[index++]
-  },2000)
-
+  setInterval(() => src.value = swipe_url+srcList[index?index--:index=2],2000)
 
   const selected_material = (data) => state.ep_data = data
 
@@ -96,4 +93,10 @@ import {me_list} from "../js/material";
 </script>
 
 <style scoped>
+  .side{
+    position: fixed;
+    right: 1%;
+    top: 25%;
+    z-index: 100;
+  }
 </style>

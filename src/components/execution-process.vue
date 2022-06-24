@@ -116,8 +116,8 @@ import axios from "axios";
     zn:'米绿色',
     en:'Green beige'
   })
-  // const site = 'https://rovmaker.loyaltly.cn/sfm/#/preview?'
-  const site = 'http://192.168.31.111:3000/#/preview?'
+  const site = 'https://rovmaker.loyaltly.cn/sfm/#/preview?'
+  // const site = 'http://192.168.31.111:3000/#/preview?'
   let url = ref('')
   let load = ref(false)
   let file = ref([])

@@ -4,8 +4,7 @@
       <var-image fit="none" src="https://rovmaker.oss-cn-shanghai.aliyuncs.com/sfm/logo.png" />
     </template>
     <template #default>
-      <var-space size="large" :wrap="false">
-
+      <var-space>
         <var-button class="hover" :text="true">在线报价</var-button>
         <var-button class="hover" :text="true">行业案例</var-button>
         <var-button class="hover" :text="true">客户说</var-button>
@@ -13,8 +12,6 @@
         <var-button class="hover" :text="true">优惠</var-button>
         <var-button class="hover" :text="true">解决方案</var-button>
         <var-button class="hover" :text="true">3D工具</var-button>
-<!--        <var-button class="hover" :text="true">{{ $t('message.bar[0].text') }}</var-button>-->
-<!--        <var-button class="hover" :text="true" v-for="item in title" :key="item.text">{{$t(item.text)}}</var-button>-->
       </var-space>
     </template>
     <template #right>

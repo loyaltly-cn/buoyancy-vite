@@ -17,7 +17,6 @@
 </template>
 
 <script setup>
-  import {fill_format} from "../js/material";
 
   const list = fill_format
 

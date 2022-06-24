@@ -11,8 +11,8 @@
 
 <script setup>
   import {ref} from "vue";
-  let url = ref('')
   let color = ref(null)
+  let url = ref('')
 
   const href = window.location.href
   let index = href.lastIndexOf('?')

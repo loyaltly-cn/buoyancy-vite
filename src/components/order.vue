@@ -117,6 +117,7 @@
   import {list} from "../js/ral";
   import {Email} from "../js/smtp";
   import {Snackbar} from "@varlet/ui";
+  import axios from "axios";
 
 
   let show = ref(false)
@@ -146,7 +147,41 @@
 
   const preview_model = (obj) => emit('preview_model',obj)
 
-  const submit = () => {
+  const submit = async() => {
+    simplify()
+    // console.log(JSON.stringify(model_list.value),model_list.value.length)
+    // let req = new URLSearchParams()
+    // let timeStamp = new Date().getTime().toString()
+    // req.append('timeStamp',timeStamp)
+    // req.append('name',name.value)
+    // req.append('email',email.value)
+    // req.append('phone',phone.value)
+    // req.append('json',JSON.stringify(model_list.value))
+    // let res = await axios({
+    //   url:'https://rovmaker.loyaltly.cn/sfmApi/orders',
+    //   method:'post',
+    //   data:req,
+    //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    // })
+    //
+    // console.log(res.data)
+    // send_email(timeStamp)
+  }
+
+  const simplify = () =>{
+    let list = []
+    model_list.value.forEach((data)=>{
+      console.log(data.material_name)
+      // list.push({
+      //   name:data.name,
+      //   url:data.url,
+      //   materail:material_name
+      // })
+    })
+
+  }
+
+  const send_email = (timeStamp) =>{
     Email.send({
       Host : "smtp.elasticemail.com",
       Username : "loyaltly.cn@gmail.com",
@@ -155,14 +190,13 @@
       To : '1464808104@qq.com',
       From : "loyaltly.cn@gmail.com",
       Subject : "固体浮材在线下单",
-      Body : '客户邮箱:'+email.value+'  电话'+phone.value+' 称呼:'+name.value+'订单号'
+      Body : '客户邮箱:'+email.value+'  电话'+phone.value+' 称呼:'+name.value+'订单号'+timeStamp
     }).then(()=>{
-          commit.value = false
-          Snackbar.success('ok')
-        })
+      commit.value = false
+      Snackbar.success('ok')
+    })
   }
-
-  const remove_order = (index) => console.log(model_list.value.valueOf().splice(index,1))
+  const remove_order = (index) => model_list.value.valueOf().splice(index,1)
 
 </script>
 

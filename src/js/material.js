@@ -1,94 +1,95 @@
-export  const me_bar = [
-    {
-        name:'推荐材料',
-        materialList:[0,1,2,2,1,0,1,2]
-    },
-    {
-        name:'FDM',
-        materialList:[1,2,0]
-    },
-    {
-        name:'SLA',
-        materialList:[2,0,2]
-    },
-    {
-        name:'SLS',
-        materialList:[0,1,2]
-    },
-    {
-        name:'SLM',
-        materialList:[0,1,2]
-    },
-    {
-        name:'原型手板',
-        materialList:[0,1,2]
-    },
-    {
-        name:'功能零件',
-        materialList:[0,1,2]
-    },
-    {
-        name:'展示模型',
-        materialList:[0,1,2]
-    },
-    {
-        name:'动漫手办',
-        materialList:[0,1,2]
-    },
-    {
-        name:'建筑雕塑',
-        materialList:[0,1,2]
-    },
-    {
-        name:'医疗卫生',
-        materialList:[0,1,2]
-    },
-    {
-        name:'航空汽车',
-        materialList:[0,1,2]
-    },
-    {
-        name:'批量生产',
-        materialList:[0,1,2]
-    },
-]
-
 export const ep_bar= [
     {
         name:'全部',
-        materialList:[0,1,2,3,3,2,1,3,0,1,2,3,1,1,3,3]
+        materialList:[0,1,0]
     },
     {
         name:'特价',
-        materialList:[0,1,2,3,2]
+        materialList:[0]
     },
     {
         name:'树脂',
-        materialList:[2,1,2,3]
+        materialList:[1]
     },
     {
         name:'塑料',
-        materialList:[2,1,2,3]
+        materialList:[1]
     },
     {
         name:'软胶/蜡',
-        materialList:[2,1,3]
+        materialList:[1]
     },
     {
         name:'金属',
-        materialList:[2,1,2,3]
+        materialList:[1]
     },
     {
         name:'CNC',
-        materialList:[2,1,2,3]
+        materialList:[1]
     },
     {
         name:'激光切割',
-        materialList:[2,1,2,3]
+        materialList:[1]
     },
 
 ]
 
+export  const me_bar = [
+    {
+        name:'推荐材料',
+        materialList:[0,1,1]
+    },
+    {
+        name:'FDM',
+        materialList:[0,1,1]
+    },
+    {
+        name:'SLA',
+        materialList:[0,1,1]
+    },
+    {
+        name:'SLS',
+        materialList:[0,1,1]
+    },
+    {
+        name:'SLM',
+        materialList:[0,1,1]
+    },
+    {
+        name:'原型手板',
+        materialList:[1,1,1]
+    },
+    {
+        name:'功能零件',
+        materialList:[0,0,0]
+    },
+    {
+        name:'展示模型',
+        materialList:[0,0,0]
+    },
+    {
+        name:'动漫手办',
+        materialList:[1,1,1]
+    },
+    {
+        name:'建筑雕塑',
+        materialList:[0,0,1]
+    },
+    {
+        name:'医疗卫生',
+        materialList:[0,0,1]
+    },
+    {
+        name:'航空汽车',
+        materialList:[0,0,1]
+    },
+    {
+        name:'批量生产',
+        materialList:[0,0,1]
+    },
+]
+
+//execution-process.vue
 export const ep_list= [
     {
         name:'500 耐压',
@@ -99,24 +100,15 @@ export const ep_list= [
         name:'600 << 2000',
         price:2.39,
         url:'http://pic.mohou.com/service_upload/4_choose.jpg',
-    },
-    {
-        name:'特惠尼龙/玻纤',
-        price:1.29,
-        url:'http://pic.mohou.com/service_upload/83.jpg',
-    },
-    {
-        name:'特惠尼龙/玻纤',
-        price:1.29,
-        url:'http://pic.mohou.com/service_upload/83.jpg',
     }
 ]
 
+//material-example.vue
 export const me_list = [
     {
-        name:'进口光敏树脂',
+        name:'500 耐压',
         price:1.20,
-        url:'http://pic.mohou.com/service_upload/3_new.jpg',
+        url:'http://pic.mohou.com/service_upload/4_choose.jpg',
         temperature_range:'60',
         size_precision:0.1,
         cycle:'1~3',
@@ -126,9 +118,9 @@ export const me_list = [
         label:[5,7,8,9,10,2]
     },
     {
-        name:'进口尼龙',
-        price:2.39,
-        url:'http://pic.mohou.com/service_upload/4_choose.jpg',
+        name:'200 << 600',
+        price:1.20,
+        url:'http://pic.mohou.com/service_upload/3_new.jpg',
         temperature_range:'70~150',
         size_precision:0.2,
         cycle:'2~4',
@@ -138,19 +130,20 @@ export const me_list = [
         label:[6,5,11,10,12,3]
     },
     {
-        name:'特惠尼龙/玻纤',
-        price:1.29,
-        url:'http://pic.mohou.com/service_upload/83.jpg',
-        temperature_range:'-100℃ /150~180',
+        name:'200 << 600',
+        price:1.20,
+        url:'http://pic.mohou.com/service_upload/3_new.jpg',
+        temperature_range:'70~150',
         size_precision:0.2,
         cycle:'2~4',
-        texture:'表面有磨砂感，黑色层纹明显，大倾斜角层纹清晰',
-        device_size:'700*380*500',
-        trait:'特惠尼龙和特惠尼龙玻纤，尼龙可以是白色原色或者黑色染色，尼龙玻纤由尼龙和40%玻璃纤维球组成，同尼龙相比，尼龙玻纤在强度、耐温、防火性上都有所提升。',
-        label:[6,11,10,12,3]
+        texture:'表面有磨砂感，大倾斜角有可能有层纹',
+        device_size:'300*300*600',
+        trait:'采用进口设备，进口尼龙粉末打印，综合性能比较全面，机械性能优良，适合做功能部件，免装配件等（空心打印需自带材料脱出孔）',
+        label:[6,5,11,10,12,3]
     }
 ]
 
+//select-craft.vue
 export const craft = [
     {
         name:'聚尿喷涂',
@@ -162,13 +155,3 @@ export const craft = [
     }
 ]
 
-export const fill_format = [
-    {
-        name:'空心',
-        url:'radio-blank'
-    },
-    {
-        name:'实心',
-        url: 'radio-marked'
-    }
-]
