@@ -1,7 +1,7 @@
-export const ep_bar= [
+export const process_bar= [
     {
         name:'全部',
-        materialList:[0,1,0]
+        materialList:[0,1]
     },
     {
         name:'特价',
@@ -34,7 +34,7 @@ export const ep_bar= [
 
 ]
 
-export  const me_bar = [
+export  const example_bar = [
     {
         name:'推荐材料',
         materialList:[0,1,1]
@@ -90,7 +90,7 @@ export  const me_bar = [
 ]
 
 //execution-process.vue
-export const ep_list= [
+export const process = [
     {
         name:'500 耐压',
         price:1.20,
@@ -104,7 +104,7 @@ export const ep_list= [
 ]
 
 //material-example.vue
-export const me_list = [
+export const example = [
     {
         name:'500 耐压',
         price:1.20,

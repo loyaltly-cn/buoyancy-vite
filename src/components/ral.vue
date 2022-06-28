@@ -2,7 +2,7 @@
 
   <var-space justify="center" >
     <span  v-for="item in list" >
-    <span :title="item.en"  class="color" @click="change(item)" :style="item.background">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <span :title="item.zn"  class="color" @click="change(item)" :style="item.background">&nbsp;&nbsp;&nbsp;&nbsp;</span>
     </span>
   </var-space>
 </template>

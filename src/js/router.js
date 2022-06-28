@@ -1,7 +1,7 @@
 import {createRouter,createWebHashHistory} from "vue-router";
 import index from '../page/index.vue'
 import preview from '../components/model.vue'
-import admin from '../page/admin.vue'
+import order from '../page/order.vue'
 const routers = [
     {
         path:'/',
@@ -12,8 +12,8 @@ const routers = [
         component:index
     },
     {
-      path: '/admin',
-      component: admin
+      path: '/order',
+      component: order
     },
     {
         path: '/preview',

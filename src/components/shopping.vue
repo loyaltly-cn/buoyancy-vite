@@ -46,24 +46,18 @@
       <td><var-image title="点击预览" style="cursor: pointer;" @click="preview_model(item.url)" width="200px" :alt="item.url" src="https://varlet-varletjs.vercel.app/cat.jpg" /></td>
       <td>
         <var-space direction="column" >
-
-          <var-space>
-            <span>name</span>
-            <span>{{item.name}}</span>
-          </var-space>
-
+          <span @click="test()">name &nbsp; {{item.name}}</span>
           <var-space>
             <span>color</span>
-            <!--            {{item}}-->
             <div :title="item.color.en" @click="show = true; index = i" :style="item.color.background" class="color-piece">&nbsp</div>
           </var-space>
 
-          <var-select :line="false" placeholder="请选择材料密度"  v-model="item.material_name">
-            <var-option label="500耐压" />
+          <var-select :line="false" placeholder="请选择材料密度"  v-model="item.material">
+            <var-option label="500 耐压" />
             <var-option label="600 << 2000" />
           </var-select>
 
-          <var-select :line="false" placeholder="请选择工艺" v-model="item.craft_name">
+          <var-select :line="false" placeholder="请选择工艺" v-model="item.craft">
             <var-option label="聚尿喷涂" />
             <var-option label="油漆" />
           </var-select>
@@ -86,27 +80,28 @@
     <ral style="margin: 10px 10px" @change="change" />
   </var-popup>
 
-  <var-popup position="center" v-model:show="commit" style="width: 500px;height: 300px;">
+  <var-popup position="center" v-model:show="commit" style="width: 500px;height: 340px;">
     <var-space direction="column"  style="margin: 30px 30px" align="center">
-      <var-input  placeholder="name" v-model="name">
+      <span>请提供您的联系方式</span>
+      <var-input  placeholder="姓名" v-model="name">
         <template #prepend-icon>
           <var-icon name="account-circle-outline" />
         </template>
       </var-input>
 
-      <var-input  placeholder="email" v-model="email">
+      <var-input :rules="[v => email_regex.test(v) || '请填写正确的邮箱']"  placeholder="邮箱" v-model="email">
         <template #prepend-icon>
           <var-icon name="https://rovmaker.oss-cn-shanghai.aliyuncs.com/sfm/icon/email.svg" />
         </template>
       </var-input>
 
-      <var-input  placeholder="phone" v-model="phone">
+      <var-input :rules="[v => phone_regex.test(v) || '请填写正确的手机号']"  placeholder="手机号" v-model="phone">
         <template #prepend-icon>
           <var-icon name="phone-outline" />
         </template>
       </var-input>
 
-      <var-button @click="submit" type="info">提交</var-button>
+      <var-button @click="submit" type="info" :loading="load">提交</var-button>
     </var-space>
   </var-popup>
 
@@ -114,33 +109,29 @@
 
 <script setup>
   import {ref} from "vue";
-  import {list} from "../js/ral";
   import {Email} from "../js/smtp";
   import {Snackbar} from "@varlet/ui";
   import axios from "axios";
 
 
   let show = ref(false)
-  let index = ref(0)
-  let currentColor = ref(list[0])
+  let index = ref(null)
   let name = ref(null)
   let email = ref(null)
   let phone = ref(null)
-  // const regular = /^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/;
+  let load = ref(false)
+  const email_regex  = /.[0-9|a-z]@[0-9|a-z]/
+  const phone_regex  = /.[0-9]/
   const props = defineProps({
     model_list:{
       type:Object
     }
   })
-  const emit = defineEmits(['preview_model'])
+
+  const emit = defineEmits(['preview_model','over'])
   let model_list = ref(props.model_list)
   let commit = ref(false)
 
-  // for (let i =0;i<props.model_list.valueOf().length;i++){
-    // console.log(props.model_list.valueOf()[i].material.name)
-    // model_list.value[i].material_name = props.model_list.valueOf()[i].material.name
-    // model_list.value[i].craft.name = props.model_list.valueOf()[i].craft.name
-  // }
 
   const change = (obj) => model_list.value.valueOf()[index.value].color = obj
 
@@ -148,37 +139,54 @@
   const preview_model = (obj) => emit('preview_model',obj)
 
   const submit = async() => {
-    simplify()
-    // console.log(JSON.stringify(model_list.value),model_list.value.length)
-    // let req = new URLSearchParams()
-    // let timeStamp = new Date().getTime().toString()
-    // req.append('timeStamp',timeStamp)
-    // req.append('name',name.value)
-    // req.append('email',email.value)
-    // req.append('phone',phone.value)
-    // req.append('json',JSON.stringify(model_list.value))
-    // let res = await axios({
-    //   url:'https://rovmaker.loyaltly.cn/sfmApi/orders',
-    //   method:'post',
-    //   data:req,
-    //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-    // })
-    //
-    // console.log(res.data)
-    // send_email(timeStamp)
+    console.log(name.value)
+    if (name.value && email.value && phone.value){
+      let timeStamp = save()
+      send_email(timeStamp)
+      emit('over')
+    }else {
+      Snackbar.error('请完整填写表单')
+    }
+
   }
 
+  const save = async () =>{
+    load.value = true
+    let json = simplify()
+    let req = new URLSearchParams()
+    let timeStamp = new Date().getTime().toString()
+    req.append('timeStamp',timeStamp)
+    req.append('name',name.value)
+    req.append('email',email.value)
+    req.append('phone',phone.value)
+    req.append('json',json)
+    await axios({
+      url:'https://rovmaker.loyaltly.cn/sfmApi/orders',
+      method:'post',
+      data:req,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+    })
+    return timeStamp
+  }
   const simplify = () =>{
-    let list = []
-    model_list.value.forEach((data)=>{
-      console.log(data.material_name)
-      // list.push({
-      //   name:data.name,
-      //   url:data.url,
-      //   materail:material_name
-      // })
+    let obj = []
+    model_list.value.forEach(data =>{
+      let {name,url,craft,color,material,number,note} = data
+      let {code} = color
+      let index = url.lastIndexOf('?')
+      url = url.substring(++index)
+      obj.push({
+        name:name,
+        url:url,
+        craft:craft,
+        material:material,
+        code:code,
+        number:number,
+        note:note
+      })
     })
 
+    return JSON.stringify(obj)
   }
 
   const send_email = (timeStamp) =>{
@@ -190,13 +198,21 @@
       To : '1464808104@qq.com',
       From : "loyaltly.cn@gmail.com",
       Subject : "固体浮材在线下单",
-      Body : '客户邮箱:'+email.value+'  电话'+phone.value+' 称呼:'+name.value+'订单号'+timeStamp
+      Body : '客户邮箱:'+email.value+'  电话'+phone.value+' 称呼:'+name.value+'订单号'+timeStamp+' 链接:https://rovmaker.loyaltly.cn/sfm/#/order?'+timeStamp
     }).then(()=>{
       commit.value = false
-      Snackbar.success('ok')
+      load.value = false
     })
+
+
   }
   const remove_order = (index) => model_list.value.valueOf().splice(index,1)
+
+  const test = () =>{
+    props.model_list.forEach(data =>{
+      console.log(data)
+    })
+  }
 
 </script>
 

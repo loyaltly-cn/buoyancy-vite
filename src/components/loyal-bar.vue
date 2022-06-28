@@ -19,11 +19,6 @@
         <var-button class="hover" :text="true">登录</var-button>
         <var-icon class="hover" name="magnify" />
         <var-icon class="hover" name="cart-outline" />
-        <var-icon class="hover" name="translate" />
-        <var-select  @change="change" :line="false" style="margin-bottom: 20%;width: 80px" v-model="value">
-          <var-option label="中文" />
-          <var-option label="English" />
-        </var-select>
       </var-space>
     </template>
   </var-app-bar>

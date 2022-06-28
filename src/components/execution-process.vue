@@ -43,7 +43,7 @@
                 <var-uploader accept="*" @after-read="upload_finish" :hide-list="true" v-model="file">
                   <template #default>
                     <var-button type="info" style="height: 86px"  :loading="load" >
-                      <var-space align="center">
+                      <var-space align="center" :wrap="false">
                         <var-icon name="https://rovmaker.oss-cn-shanghai.aliyuncs.com/sfm/icon/upload.svg" size="70" />
                         <h1>上传3D文件</h1>
                       </var-space>
@@ -58,7 +58,7 @@
 
               <var-space direction="column">
                 <var-button type="default">
-                  <var-space align="center">
+                  <var-space align="center" :wrap="false">
                     <var-icon name="information-outline" />
                     <p>文件要求</p>
                   </var-space>
@@ -144,10 +144,10 @@ import axios from "axios";
     emit('load_model',{
       name:file.name,
       url:url.value,
-      craft:craft_data.value,
-      color:color.value
+      craft:craft_data.value.name,
+      color:color.value,
+      material:props.material_data.name
     })
-
     load.value = false
   }
 </script>

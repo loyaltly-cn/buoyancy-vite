@@ -258,5 +258,54 @@ export const list = [{
         background:prefix+'#FFA420',
         zn:'闪亮橙',
         en:'Luminous bright orange'
+    },
+    {
+        code:'2008',
+        color:'247,094,037,1',
+        background:prefix+'#F75E25',
+        zn:'亮红橙',
+        en:'Bright red orange'
+    },
+    {
+        code:'2009',
+        color:'245,064,033,1',
+        background:prefix+'#F54021',
+        zn:'交通橙',
+        en:'Traffic orange'
+    },
+    {
+        code:'2010',
+        color:'216,075,032,1',
+        background:prefix+'#D84B20',
+        zn:'信号橙',
+        en:'Signal orange'
+    },
+    {
+        code:'2011',
+        color:'236,124,038,1',
+        background:prefix+'#EC7C26',
+        zn:'深橙色',
+        en:'Deep orange'
+    },
+    {
+        code:'2012',
+        color:'235,106,014,1',
+        background:prefix+'#E55137',
+        zn:'鲑鱼橙',
+        en:'Salmon range'
+    },
+    {
+        code:'2013',
+        color:'195,088,049,1',
+        background:prefix+'#C35831',
+        zn:'珍珠橙',
+        en:'Pearl orange'
+    },
+    {
+        code:'300',
+        color:'175,43,30,1',
+        background:prefix+'#AF2B1E',
+        zn:'火焰红',
+        en:'Flame red'
     }
 ]

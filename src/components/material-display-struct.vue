@@ -41,10 +41,10 @@
 </template>
 
 <script setup>
-import {me_bar} from "../js/material";
+import {example_bar} from "../js/material";
   import {defineEmits} from "vue";
 
-  const barList = me_bar
+  const barList = example_bar
 
   const props = defineProps({
     data:{

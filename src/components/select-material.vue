@@ -13,11 +13,11 @@
         <var-space v-for="item in list" style="margin-top: 25%">
           <var-space direction="column" align="end">
             <var-space direction="column" align="center" style="width: 100px;height: 150px">
-              <var-image style="height:50px;width: 80px" :src="ep_list[item].url" />
-              <span style="font-size: 1px">{{ep_list[item].name}}</span>
+              <var-image style="height:50px;width: 80px" :src="process[item].url" />
+              <span style="font-size: 1px">{{process[item].name}}</span>
               <var-space>
-                <span style="color: red">{{ep_list[item].price}}$/g</span >
-                <var-icon @click="selected(ep_list[item])" class="icon" name="check-circle-outline" />
+                <span style="color: red">{{process[item].price}}$/g</span >
+                <var-icon @click="selected(process[item])" class="icon" name="check-circle-outline" />
               </var-space>
             </var-space>
           </var-space>
@@ -37,14 +37,14 @@
 </template>
 
 <script setup>
-import {ep_bar, ep_list} from "../js/material";
+import {process_bar, process} from "../js/material";
 import {ref} from "vue";
 
-  const bar = ep_bar
+  const bar = process_bar
   let active = ref(0)
-  let list = ref(ep_bar[0].materialList.slice(0,4))
+  let list = ref(process_bar[0].materialList.slice(0,4))
   let icon_bottom_list = ref([])
-  let length = Math.ceil(ep_bar[0].materialList.length/4)
+  let length = Math.ceil(process_bar[0].materialList.length/4)
   let pageIndex = ref(0)
 
   icon_bottom_list.value.push('radio-marked')
@@ -57,7 +57,7 @@ import {ref} from "vue";
 
 
   const calculate = () =>{
-    let len = Math.ceil(ep_bar[active.value].materialList.length/4)
+    let len = Math.ceil(process_bar[active.value].materialList.length/4)
     icon_bottom_list.value = []
     icon_bottom_list.value.push('radio-marked')
     if (len !== 1){
@@ -67,8 +67,8 @@ import {ref} from "vue";
     }
   }
   const change_bar = () =>{
-    list.value = ep_bar[active.value].materialList.slice(0,4)
-    length = Math.ceil(ep_bar[active.value].materialList.length/4)
+    list.value = process_bar[active.value].materialList.slice(0,4)
+    length = Math.ceil(process_bar[active.value].materialList.length/4)
     calculate()
   }
 
@@ -76,9 +76,9 @@ import {ref} from "vue";
     pag_conditions(number)
     let index = pag_data_conditions().valueOf()
     if (index.end){
-      list.value = ep_bar[active.value].materialList.slice(index.home,index.end)
+      list.value = process_bar[active.value].materialList.slice(index.home,index.end)
     }else {
-      list.value = ep_bar[active.value].materialList.slice(index.home)
+      list.value = process_bar[active.value].materialList.slice(index.home)
     }
 
     let index_of = icon_bottom_list.value.indexOf('radio-marked')
@@ -91,7 +91,7 @@ import {ref} from "vue";
       return {home:0,end:4}
     }
     let pag_length = pageIndex.value*4
-    let data_length = ep_bar[active.value].materialList.length
+    let data_length = process_bar[active.value].materialList.length
     if (pag_length+4 > data_length){
       return {home:pag_length,end:false}
     }

@@ -30,14 +30,14 @@
 </template>
 
 <script setup>
-import {me_bar, me_list} from "../js/material";
+import {example_bar, example} from "../js/material";
   import {reactive, ref} from "vue";
 
   const active = ref(0)
   let pageIndex = 0
-  let currentList = me_list.slice(0,3)
+  let currentList = example.slice(0,3)
 
-  const tabsList = me_bar
+  const tabsList = example_bar
 
   let state = reactive({
     data:currentList
@@ -45,8 +45,8 @@ import {me_bar, me_list} from "../js/material";
 
   const change = () =>{
     let tmp = []
-    me_bar[active.value].materialList.forEach((data)=>{
-      tmp.push(me_list[data])
+    example_bar[active.value].materialList.forEach((data)=>{
+      tmp.push(example[data])
     })
 
     state.data = tmp
