@@ -43,12 +43,21 @@
     </thead>
     <tbody>
     <tr v-for="(item,i) in model_list">
-      <td><var-image title="点击预览" style="cursor: pointer;" @click="preview_model(item.url)" width="200px" :alt="item.url" src="https://varlet-varletjs.vercel.app/cat.jpg" /></td>
+      <td>
+        <var-space direction="column">
+          <table-model :url="prefix+(item.url.substring((item.url.lastIndexOf('?')+1)))"/>
+          <var-button class="hover" @click="preview_model(item.url)" :text="true">点击预览</var-button>
+        </var-space>
+<!--        <var-image title="点击预览" style="cursor: pointer;" @click="preview_model(item.url)" width="200px" :alt="item.url" src="https://varlet-varletjs.vercel.app/cat.jpg" />-->
+      </td>
       <td>
         <var-space direction="column" >
-          <span @click="test()">name &nbsp; {{item.name}}</span>
-          <var-space>
-            <span>color</span>
+          <var-space direction="column">
+            <span style="font-size: 1px;color: #888">文件名</span>
+            <span>{{item.name}}</span>
+          </var-space>
+          <var-space direction="column">
+            <span style="font-size: 1px;color: #888">颜色:{{item.color.zn}}</span>
             <div :title="item.color.en" @click="show = true; index = i" :style="item.color.background" class="color-piece">&nbsp</div>
           </var-space>
 
@@ -89,13 +98,13 @@
         </template>
       </var-input>
 
-      <var-input :rules="[v => email_regex.test(v) || '请填写正确的邮箱']"  placeholder="邮箱" v-model="email">
+      <var-input validate-trigger="['onBlur']" :rules="[v => email_regex.test(v) || '请填写正确的邮箱']"  placeholder="邮箱" v-model="email">
         <template #prepend-icon>
           <var-icon name="https://rovmaker.oss-cn-shanghai.aliyuncs.com/sfm/icon/email.svg" />
         </template>
       </var-input>
 
-      <var-input :rules="[v => phone_regex.test(v) || '请填写正确的手机号']"  placeholder="手机号" v-model="phone">
+      <var-input validate-trigger="['onBlur']" :rules="[v => phone_regex.test(v) || '请填写正确的手机号']"  placeholder="手机号" v-model="phone">
         <template #prepend-icon>
           <var-icon name="phone-outline" />
         </template>
@@ -113,15 +122,11 @@
   import {Snackbar} from "@varlet/ui";
   import axios from "axios";
 
-
-  let show = ref(false)
-  let index = ref(null)
-  let name = ref(null)
-  let email = ref(null)
-  let phone = ref(null)
-  let load = ref(false)
+  const prefix = 'https://rovmaker.oss-cn-shanghai.aliyuncs.com/sfm/glb/'
+  let [show,load,commit,index,name,email,phone] = [ref(false),ref(false),ref(false),ref(null),ref(null),ref(null),ref(null)]
   const email_regex  = /.[0-9|a-z]@[0-9|a-z]/
   const phone_regex  = /.[0-9]/
+
   const props = defineProps({
     model_list:{
       type:Object
@@ -130,24 +135,19 @@
 
   const emit = defineEmits(['preview_model','over'])
   let model_list = ref(props.model_list)
-  let commit = ref(false)
-
 
   const change = (obj) => model_list.value.valueOf()[index.value].color = obj
-
 
   const preview_model = (obj) => emit('preview_model',obj)
 
   const submit = async() => {
-    console.log(name.value)
     if (name.value && email.value && phone.value){
-      let timeStamp = save()
+      let timeStamp = await save()
       send_email(timeStamp)
       emit('over')
     }else {
       Snackbar.error('请完整填写表单')
     }
-
   }
 
   const save = async () =>{
@@ -208,12 +208,6 @@
   }
   const remove_order = (index) => model_list.value.valueOf().splice(index,1)
 
-  const test = () =>{
-    props.model_list.forEach(data =>{
-      console.log(data)
-    })
-  }
-
 </script>
 
 <style scoped>
@@ -227,7 +221,9 @@
   .del_icon:hover{
     color: red;
   }
-
+  .hover:hover{
+    color: cornflowerblue;
+  }
   .icon:hover{
     color: cornflowerblue;
     cursor: pointer;

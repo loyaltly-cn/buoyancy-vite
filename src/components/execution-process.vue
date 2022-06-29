@@ -5,7 +5,7 @@
       <template #description>
         <var-row>
           <var-col offset="0" span="24">
-            <var-space style="margin-top: 3%;width: 100%"  size="large" justify="center" :wrap="false">
+            <var-space style="margin-top: 3%;width: 100%"  size="large">
 
               <var-space class="material_hover" style="border: 1px solid #afaeae;height: 90px;width: 300px" justify="space-around" align="center">
                 <var-image style="height: 100%;width: 120px" :src="props.material_data.url" />

@@ -9,9 +9,13 @@
 
 <script setup>
   import {list} from "../js/ral";
-
+  import {Snackbar} from "@varlet/ui";
+  Snackbar.allowMultiple(true)
   const emit = defineEmits(['change'])
-  const change = (obj) => emit('change',obj)
+  const change = (obj) => {
+    Snackbar.success('ok')
+    emit('change',obj)
+  }
 </script>
 
 <style scoped>

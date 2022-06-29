@@ -55,7 +55,12 @@
     </thead>
     <tbody>
     <tr v-for="(item,i) in json">
-      <td><var-image title="点击预览" style="cursor: pointer;"  width="200px" :alt="item.url" src="https://varlet-varletjs.vercel.app/cat.jpg" /></td>
+      <td>
+        <div title="点击全屏预览">
+          <table-model :url="prefix+item.url"/>
+        </div>
+<!--        <var-image title="点击预览" style="cursor: pointer;"  width="200px" :alt="item.url" src="https://varlet-varletjs.vercel.app/cat.jpg" />-->
+      </td>
       <td>
         <var-space direction="column" >
           <span >name &nbsp; {{item.name}}</span>
@@ -88,9 +93,12 @@
 <script setup>
   import axios from "axios";
   import {ref} from "vue";
+
+  const prefix = 'https://rovmaker.oss-cn-shanghai.aliyuncs.com/sfm/glb/'
   const href = window.location.href
-  let index = href.lastIndexOf('?')
-  const timeStamp = href.substring(++index)
+  const index = href.lastIndexOf('?')
+  const timeStamp = href.substring(index+1)
+
   let req = new URLSearchParams()
 
   let [name,phone,email,url,json] = [ref(),ref(),ref(),ref(),ref([])]
@@ -110,7 +118,7 @@
   })
 
   const download = url =>{
-    console.log(url)
+    // console.log(url)
   }
 </script>
 

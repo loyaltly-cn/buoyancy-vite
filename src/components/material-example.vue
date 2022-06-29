@@ -12,7 +12,7 @@
         </var-tabs>
       </template>
       <template #description>
-        <var-row style="margin-top: 2%;margin-left: 2%">
+        <var-row style="margin-top: 2%;margin-left: 2%" >
           <var-col offset="1" span="6" >
             <material-display-struct v-if="state.data[pageIndex]" @selected="selected" :data="state.data[pageIndex]"></material-display-struct>
           </var-col>

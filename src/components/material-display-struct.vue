@@ -1,6 +1,6 @@
 <template>
   <var-space direction="column" justify="center" >
-    <var-space justify="space-between">
+    <var-space justify="space-between" :wrap="false">
       <var-space direction="column">
         <span>{{ props.data.name }}</span>
         <span style="color: red">{{ props.data.price }}$/g</span>

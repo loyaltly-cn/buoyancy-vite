@@ -3,7 +3,6 @@
     <model-viewer camera-controls interaction-prompt="none"
                   :src="url"
                   id="color"
-
                   style="width: 1000px;height: 700px"/>
         <ral @change="change" />
   </var-space>

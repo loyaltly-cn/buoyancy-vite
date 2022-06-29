@@ -12,10 +12,7 @@
   </var-row>
 
   <var-row style="margin: 30px auto" justify="center">
-    <var-col span="16"
-             :lg="{span:10}"
-             :md="{span:5}"
-    >
+    <var-col span="16">
       <execution-process  @load_model="load_model"  @select_material="selected_material" :load="state.load" :material_data="state.example"/>
     </var-col>
   </var-row>
@@ -82,10 +79,7 @@ import {Snackbar} from "@varlet/ui";
 
   setInterval(() => src.value = swipe_url+srcList[index?index--:index=2],2000)
 
-  const selected_material = data => {
-    console.log(data)
-    state.example = data
-  }
+  const selected_material = data => state.example = data
 
   const load_model = (obj) =>{
     obj.material = state.example.name
@@ -102,9 +96,6 @@ import {Snackbar} from "@varlet/ui";
     Snackbar.success('请等待我们与您联系')
   }
 
-  const test = () =>{
-    Snackbar()
-  }
 
 </script>
 
