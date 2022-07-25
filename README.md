@@ -4,7 +4,7 @@
 
 ## Google <a href="https://modelviewer.dev" target="_blank"> model-viewer</a> 实现3D渲染
 ## <a href="https://www.smtpjs.com" target="_blank"> smtp.js </a> 发送邮箱功能
-
+## 安装pnpm 命令 `npm install -g pnpm`
 # 构建命令
 
 | 命令              | 作用                   |
