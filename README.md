@@ -1,7 +1,7 @@
 # 固体浮材在线下单系统
 
 # Vue 3 + Vite2 + <a href="https://github.com/varletjs/varlet" target="_blank">Varlet ui</a>
-
+## 项目使用 unplugin-vue-components 所以再vue中不需要import 组件 会自动注入
 ## Google <a href="https://modelviewer.dev" target="_blank"> model-viewer</a> 实现3D渲染
 ## <a href="https://www.smtpjs.com" target="_blank"> smtp.js </a> 发送邮箱功能
 ## 安装pnpm 命令 `npm install -g pnpm`
