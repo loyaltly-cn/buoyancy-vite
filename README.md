@@ -15,11 +15,11 @@
  | `vite preview`  | 本地预览项目               |
 
 
-# [注意*]()
+#一些注意事项
 
 #### 本项目使用 vue3 setup 语法糖 完成编写
 
-##### model-viewer `npm` 引入有问题 故使用  unpkg cnd 引入
+##### model-viewer `npm` 引入有问题 故使用  unpkg cdn 引入
 
 `<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>`
 
