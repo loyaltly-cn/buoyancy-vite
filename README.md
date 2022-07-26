@@ -7,7 +7,7 @@
 ## 安装pnpm 命令 `npm install -g pnpm`
 # 构建命令
 
-| 命令              | 作用                   |
+| command              | effect                   |
 |-----------------|----------------------|
 | `pnpm install ` | git clone 之后执行 安装依赖库 |
 | `pnpm run dev`  | 启动项目                 |
